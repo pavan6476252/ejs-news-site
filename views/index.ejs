@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Random Title</title>
+
+ <style>
+     body { padding:10px; }
+     .articles{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+     }
+     img{
+   width: 100%;
+    /* border-radius: 2%;     */
+     border-radius: 5px 5px 0 0;
+      object-fit: contain;
+     }
+     .news-card {
+      /* background-color: #a7c1ed; */
+    /* padding: 5px; */
+    /* border-radius: 15px; */
+      margin: 5px;
+      /* width: 400px; */
+      
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 24%;
+  border-radius: 5px;
+     
+     }
+     .news-card:hover{
+     
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+
+     }
+   </style>
+</head>
+<body >
+
+   <div  class="articles">
+    <% if (articles) {%>
+      
+      <% articles.forEach(function(article) { %>
+        <div class="news-card">
+       
+          <image  src = "<%=article.urlToImage %>"   />
+       <!-- <img src="" alt="" > -->
+          <h4> <%=article.title   %></h4>
+          <li> <%=article.description  %> </li>
+          <li> <%=article.author   %> </li>
+          <li> <%=article.publishedAt  %> </li>
+              
+      </div>
+      <% }); %>
+
+    <% } else { %>
+      <h1>Boohiss no myVar!</h1>
+    <% } %>
+      
+   </div>
+
+   </body>
+</html>
